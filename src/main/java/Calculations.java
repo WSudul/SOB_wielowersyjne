@@ -34,9 +34,12 @@ public class Calculations {
 
     public static BigInteger calculateFactorial(int n) {
 
-        Integer intValue = Fibonacci.recursiveInt(n);
+        Integer intValue = Factorial.recursiveInt(n);
         Long longValue = null; //todo
         Double doubleValue = null; //todo
+
+        System.out.println("n: " + n + "\nintValue: " + intValue +
+                "\nlongValue: " + longValue + "\ndoubleValue: " + doubleValue);
 
         try {
             return VoteOnResult(intValue, longValue, doubleValue);
@@ -46,9 +49,12 @@ public class Calculations {
     }
 
     public static BigInteger calculateFibonacci(int n) {
-        Integer intValue = Factorial.recursiveInt(n);
+        Integer intValue = Fibonacci.recursiveInt(n);
         Long longValue = null; //todo
         Double doubleValue = null; //todo
+
+        System.out.println("n: " + n + "\nintValue: " + intValue +
+                "\nlongValue: " + longValue + "\ndoubleValue: " + doubleValue);
 
         try {
             return VoteOnResult(intValue, longValue, doubleValue);
