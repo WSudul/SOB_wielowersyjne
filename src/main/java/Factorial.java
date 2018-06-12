@@ -8,4 +8,18 @@ public class Factorial {
         result = recursiveInt(n - 1) * n;
         return result;
     }
+
+    public static double iterativeDouble (double n){
+        double result=1; double n_copy=n;
+        if (n <0) return Double.parseDouble(null);
+        else if (0==n) return 1;
+        else{
+            while (n_copy>0) {
+                result = result * n_copy;
+                n_copy--;
+            }
+        }
+        return result;
+    }
 }
+
