@@ -25,5 +25,4 @@ public class CalculationsFactorialErrorsTest {
     public void calculateFactorial() throws Exception {
         assertNull(Calculations.calculateFactorial(input));
     }
-
 }

@@ -21,9 +21,6 @@ public class CalculationsFibonacciTest {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-//                {0, 1}, {1, 1}, {2, 1}, {3, 2}, {8, 21},{10, 55}, {16, 987},
-//                {32, 2178309}, {39,63245986}, {64,10610209857723L}, {90,2880067194370816120L}
-
                 {0, new BigInteger("1")},
                 {1, new BigInteger("1")},
                 {2, new BigInteger("1")},
@@ -35,7 +32,6 @@ public class CalculationsFibonacciTest {
                 {39, new BigInteger("63245986")},
                 {64, new BigInteger("10610209857723")},
                 {90, new BigInteger("2880067194370816120")},
-
         });
     }
 
