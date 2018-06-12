@@ -10,12 +10,7 @@ public class Calculations {
         return Math.abs(a - b) < eps;
     }
 
-    private static BigInteger VoteOnResult(Integer intValue, Long longValue, Double doubleValue) throws
-            IllegalArgumentException {
-
-        if (doubleValue.isNaN() || doubleValue.isInfinite())
-            throw new IllegalArgumentException("Double doubleValue is NaN or Infinite");
-
+    private static BigInteger VoteOnResult(Integer intValue, Long longValue, Double doubleValue) {
         boolean isIntAndLongSame = (Long.valueOf(intValue).compareTo(longValue) == 0);
         boolean isLongAndDoubleSame = almostEqual(Double.valueOf(longValue), floor(doubleValue), kEpsilon);
         boolean isIntAndDoubleSame = almostEqual(Double.valueOf(longValue), floor(doubleValue), kEpsilon);
@@ -28,12 +23,10 @@ public class Calculations {
             return BigInteger.valueOf(longValue);
         else
             return null;
-
     }
 
 
     public static BigInteger calculateFactorial(int n) {
-
         Integer intValue = Factorial.recursiveInt(n);
         Long longValue = null; //todo
         Double doubleValue = null; //todo
@@ -41,11 +34,9 @@ public class Calculations {
         System.out.println("n: " + n + "\nintValue: " + intValue +
                 "\nlongValue: " + longValue + "\ndoubleValue: " + doubleValue);
 
-        try {
-            return VoteOnResult(intValue, longValue, doubleValue);
-        } catch (IllegalArgumentException e) {
-            return null;
-        }
+
+        return VoteOnResult(intValue, longValue, doubleValue);
+
     }
 
     public static BigInteger calculateFibonacci(int n) {
@@ -56,12 +47,7 @@ public class Calculations {
         System.out.println("n: " + n + "\nintValue: " + intValue +
                 "\nlongValue: " + longValue + "\ndoubleValue: " + doubleValue);
 
-        try {
-            return VoteOnResult(intValue, longValue, doubleValue);
-        } catch (IllegalArgumentException e) {
-            return null;
-        }
+        return VoteOnResult(intValue, longValue, doubleValue);
+
     }
-
-
 }
