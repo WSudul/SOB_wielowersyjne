@@ -21,5 +21,18 @@ public class Factorial {
         }
         return result;
     }
+
+    public static long iterativeLong (long n){
+        long result=1; long n_copy=n;
+        if (n <0) return Long.parseLong(null);
+        else if (0==n) return 1;
+        else{
+            while (n_copy>0) {
+                result = result * n_copy;
+                n_copy--;
+            }
+        }
+        return result;
+    }
 }
 
