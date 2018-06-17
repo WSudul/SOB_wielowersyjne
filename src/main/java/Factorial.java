@@ -1,18 +1,29 @@
 public class Factorial {
 
-    public static int recursiveInt(int n) {
-        int result;
-        if (n == 1 || n == 0)
-            return 1;
+    public static Integer recursiveInt(int n) {
+        try {
+            int result;
 
-        result = recursiveInt(n - 1) * n;
-        return result;
+            if (n == 1 || n == 0)
+                return 1;
+            else if (n < 0)
+                return null;
+
+            result = recursiveInt(n - 1) * n;
+            return result;
+        } catch (StackOverflowError e) {
+            System.out.println("Exception caught: " + e.getMessage());
+            return null;
+        } catch (NullPointerException e) {
+            System.out.println("Exception caught: " + e.getMessage());
+            return null;
+        }
     }
 
-    public static double iterativeDouble (double n){
+    public static Double iterativeDouble(double n) {
         double result=1; double n_copy=n;
-        if (n <0) return Double.parseDouble(null);
-        else if (0==n) return 1;
+        if (n < 0) return null;
+        else if (0 == n) return 1d;
         else{
             while (n_copy>0) {
                 result = result * n_copy;
@@ -22,10 +33,10 @@ public class Factorial {
         return result;
     }
 
-    public static long iterativeLong (long n){
+    public static Long iterativeLong(long n) {
         long result=1; long n_copy=n;
-        if (n <0) return Long.parseLong(null);
-        else if (0==n) return 1;
+        if (n < 0) return null;
+        else if (0 == n) return 1l;
         else{
             while (n_copy>0) {
                 result = result * n_copy;

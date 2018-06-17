@@ -18,11 +18,12 @@ public class CalculationsFactorialErrorsTest {
     @Parameterized.Parameters
     public static Collection<Object> data() {
         return Arrays.asList(new Object[]{
-                32, 64, 10000, -1, -8});
+                -1, -8, 32, 64, 10000});
     }
 
     @Test
     public void calculateFactorial() throws Exception {
+        System.out.println("input=" + input);
         assertNull(Calculations.calculateFactorial(input));
     }
 }

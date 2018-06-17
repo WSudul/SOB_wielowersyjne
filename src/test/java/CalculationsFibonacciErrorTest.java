@@ -18,11 +18,12 @@ public class CalculationsFibonacciErrorTest {
     @Parameterized.Parameters
     public static Collection<Object> data() {
         return Arrays.asList(new Object[]{
-                128, 256, 10000, -1, -8});
+                -1, -8, 128, 10000});
     }
 
     @Test
     public void calculateFibonacci() throws Exception {
+        System.out.println("input=" + input);
         assertNull(Calculations.calculateFibonacci(input));
     }
 }
