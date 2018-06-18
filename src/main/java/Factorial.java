@@ -1,21 +1,42 @@
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
 public class Factorial {
 
     public static Integer recursiveInt(int n) {
-        try {
-            int result;
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        Future<Integer> integerFuture = executor.submit(new RecursiveInt(Factorial::recursiveIntCalculation, n));
 
+        try {
+            return integerFuture.get(RecursiveInt.kTimeout, RecursiveInt.kTimeUnit);
+        } catch (Exception e) {
+            System.out.println("Exception caught while waiting for result: " + e.getMessage());
+            integerFuture.cancel(true);
+            return null;
+        }
+
+
+    }
+
+    private static Integer recursiveIntCalculation(int n) {
+        try {
             if (n == 1 || n == 0)
                 return 1;
             else if (n < 0)
                 return null;
 
-            result = recursiveInt(n - 1) * n;
-            return result;
+            Integer temporaryResult = recursiveIntCalculation(n - 1);
+            if (temporaryResult == null) {
+                return null;
+            }
+
+            return temporaryResult * n;
         } catch (StackOverflowError e) {
-            System.out.println("Exception caught: " + e.getMessage());
+            System.out.println(" StackOverflowErrorException caught: " + e.getMessage());
             return null;
         } catch (NullPointerException e) {
-            System.out.println("Exception caught: " + e.getMessage());
+            System.out.println("NullPointerException Exception caught: " + e.getMessage());
             return null;
         }
     }

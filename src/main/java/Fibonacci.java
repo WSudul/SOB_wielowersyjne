@@ -1,6 +1,26 @@
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
 public class Fibonacci {
 
     public static Integer recursiveInt(int n) {
+
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        Future<Integer> integerFuture = executor.submit(new RecursiveInt(Fibonacci::recursiveIntCalculation, n));
+
+        try {
+            return integerFuture.get(RecursiveInt.kTimeout, RecursiveInt.kTimeUnit);
+        } catch (Exception e) {
+            System.out.println("Exception caught while waiting for result: " + e.getMessage());
+            integerFuture.cancel(true);
+            return null;
+        }
+
+
+    }
+
+    private static Integer recursiveIntCalculation(int n) {
         try {
             if (n < 0) {
                 return null;
@@ -11,10 +31,10 @@ public class Fibonacci {
                 return 1;
             else {
 
-                Integer result1 = recursiveInt(n - 1);
+                Integer result1 = recursiveIntCalculation(n - 1);
                 if (result1 == null)
                     return null;
-                Integer result2 = recursiveInt(n - 2);
+                Integer result2 = recursiveIntCalculation(n - 2);
                 if (result2 == null)
                     return null;
                 return result1 + result2;

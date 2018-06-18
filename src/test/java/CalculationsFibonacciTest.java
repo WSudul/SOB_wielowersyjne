@@ -30,8 +30,8 @@ public class CalculationsFibonacciTest {
                 {16, new BigInteger("987")},
                 {32, new BigInteger("2178309")},
                 {39, new BigInteger("63245986")},
-                //{64, new BigInteger("10610209857723")},
-                //  {90, new BigInteger("2880067194370816120")},
+                {64, new BigInteger("10610209857723")},
+                {90, new BigInteger("2880067194370816120")},
         });
     }
 
