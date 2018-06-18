@@ -45,7 +45,6 @@ public class Calculations {
         System.out.println("intValue=" + (intValue == null ? "null" : intValue.toString()));
 
         return VoteOnResult(intValue, longValue, doubleValue);
-
     }
 
     public static BigInteger calculateFibonacci(int n) {

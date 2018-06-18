@@ -14,7 +14,6 @@ public class RecursiveInt implements Callable<Integer> {
         this.n = n;
     }
 
-
     @Override
     public Integer call() throws Exception {
         return function.apply(n);

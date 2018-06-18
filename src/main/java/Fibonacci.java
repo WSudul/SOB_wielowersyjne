@@ -5,7 +5,6 @@ import java.util.concurrent.Future;
 public class Fibonacci {
 
     public static Integer recursiveInt(int n) {
-
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Future<Integer> integerFuture = executor.submit(new RecursiveInt(Fibonacci::recursiveIntCalculation, n));
 
@@ -16,7 +15,6 @@ public class Fibonacci {
             integerFuture.cancel(true);
             return null;
         }
-
 
     }
 
@@ -80,6 +78,5 @@ public class Fibonacci {
             return f2;
         }
     }
-
 
 }

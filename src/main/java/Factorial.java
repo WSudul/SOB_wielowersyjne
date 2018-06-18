@@ -16,7 +16,6 @@ public class Factorial {
             return null;
         }
 
-
     }
 
     private static Integer recursiveIntCalculation(int n) {
